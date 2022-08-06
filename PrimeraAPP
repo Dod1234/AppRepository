@@ -1,0 +1,30 @@
+--- Codigo de Plantilla Web para mandar mensajes a un correo electronico------------
+
+<form action="mailto:contacto@lineadecodigo.com" method="post" name="form1">
+  <label for="nombre">Nombre: </label>
+  <input id="nombre" name="nombre" type="text" />
+  <label for="email">Email: </label>
+  <input id="email" name="nombre" type="text" />
+  ¿Qué te pareció la página?
+  <textarea id="opinion" name="opinion"></textarea>
+  <input name="Submit" type="submit" value="Enviar" />
+</form>
+
+------- Mi primer Formulario en HTML-------------------
+
+<form action="/my-handling-form-page" method="post">
+ <ul>
+  <li>
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="user_name">
+  </li>
+  <li>
+    <label for="mail">Correo electrónico:</label>
+    <input type="email" id="mail" name="user_mail">
+  </li>
+  <li>
+    <label for="msg">Mensaje:</label>
+    <textarea id="msg" name="user_message"></textarea>
+  </li>
+ </ul>
+</form>
