@@ -1,4 +1,4 @@
---- Codigo de Plantilla Web para mandar mensajes a un correo electronico------------
+------------------- Codigo de Plantilla Web para mandar mensajes a un correo electronico ---------------
 
 <form action="mailto:contacto@lineadecodigo.com" method="post" name="form1">
   <label for="nombre">Nombre: </label>
@@ -10,7 +10,7 @@
   <input name="Submit" type="submit" value="Enviar" />
 </form>
 
-------- Mi primer Formulario en HTML-------------------
+------------------------- Mi primer Formulario en HTML----------------------
 
 <form action="/my-handling-form-page" method="post">
  <ul>
@@ -28,3 +28,149 @@
   </li>
  </ul>
 </form>
+
+-------------------------Ejemplo de Reproducto en Html-----------------------
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>EJEMPLO VIDEO Y AUDIO EN HTML5</title>
+<link rel="stylesheet" href="css/estilo.css">	    
+</head>
+<body>
+        <!-- Cabecera -->
+        <header>
+            <img src="media/ejemplo-logotipo.gif" width="189" height="57" alt="logo"  /> 
+            <h1>EJEMPLO VIDEO Y AUDIO EN HTML5</h1>
+        </header>
+
+        <!-- Contenido -->
+        <section>
+            <article>
+                <figure>
+                        <h2>Artículo 1: video</h2>
+                        <video src="media/gatito.mp4" controls poster="media/gatito.jpg"> </video>
+                        <figcaption>Figura: descipción video</figcaption>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                        <h2>Artículo 2: audio</h2>
+                        <audio src="media/gato.mp3" controls > </audio>
+                        <figcaption>Figura: descipción audio</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <!-- Contenido relacionado-->
+        <aside>
+                    <p>Contenido Relacionado</p>
+        </aside>
+
+        <!-- Pie de pagina -->
+        <footer>
+                Este ejemplo de código ha sido creado para <a href="http://www.ejemplocodigo.com">www.ejemplocodigo.com</a>
+        </footer>
+
+
+</body>
+</html>
+
+
+
+
+------------------------- Codigo Json sobre Formularios -----------------------
+
+
+
+<?php
+
+/********************* GENERAR JSON *****************/
+
+
+if ( isset($_POST["dato1"]) && isset($_POST["dato2"]) )
+{
+ 
+ $datos = array(); //creamos un array
+
+$dato1=$_POST['dato1'];
+ $dato2=$_POST['dato2'];
+
+$datos[] = array('dato1'=> $dato1, 'dato2'=> $dato2);
+
+
+ //Creamos el JSON
+ $json_string = json_encode($datos);
+
+
+ $file = 'datos.json';
+ file_put_contents($file, $json_string); 
+
+
+}
+else
+{
+ echo "<span style='color: red;'>Por favor, ingrese algún dato. </span></br></br>";
+}
+
+
+?>
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Formulario para Generar y mostrar JSON - EjemploCodigo</title>
+<link rel="stylesheet" href="cssestilo.css">
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" ></script>
+
+
+ 
+</head>
+
+<body>
+ 
+ <form action="<?php $_PHP_SELF ?>" method="POST">
+ Ingrese un dato #1: <input type="text" name="dato1"/>
+ <br>
+ Ingrese un dato #2: <input type="text" name="dato2"/>
+ <br>
+ <input type="submit"/>
+ </form>
+ 
+ 
+ <table class="grilla" id="tablajson">
+ <thead>
+ <th>Dato1</th>
+ <th>Dato2</th> 
+ </thead>
+ <tbody></tbody>
+ </table>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+ var url="datos.json";
+ $("#tablajson tbody").html("");
+ $.getJSON(url,function(datos){
+ $.each(datos, function(i,dato){
+ var newRow =
+ "<tr>"
+ +"<td>"+dato.dato1+"</td>"
+ +"<td>"+dato.dato2+"</td>"
+ +"</tr>";
+ $(newRow).appendTo("#tablajson tbody");
+ });
+ });
+ });
+
+</script>
+
+
+ </body>
+</html>
+
